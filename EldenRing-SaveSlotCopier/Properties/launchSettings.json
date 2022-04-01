@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "EldenRing-SaveSlotCopier": {
+      "commandName": "Project",
+      "commandLineArgs": "--input=ER0000.sl2 --source=1 --dest=4"
+    }
+  }
+}
