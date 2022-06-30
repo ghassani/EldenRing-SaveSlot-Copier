@@ -1,11 +1,10 @@
-﻿using System;
+﻿//using System;
 using System.CommandLine;
-using System.CommandLine.Invocation;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
+//using System.CommandLine.Invocation;
+//using System.Diagnostics.CodeAnalysis;
+//using System.IO;
 using System.Text;
-
-internal class Program
+class Program
 {    static async Task Main(string[] args)
     {
         var inputOpt = new Option<FileInfo>("--input", "Input");
@@ -49,7 +48,7 @@ internal class Program
         public byte encoding;
         public byte[] unk7 = new byte[15];
 
-        public BND4Header()
+        public BND4Header()         //Fix for CS8983 / CS0171
         {
             unk1 = 0;
             unk2 = 0;
@@ -92,7 +91,7 @@ internal class Program
         public List<BDN4FileEntry> entries = new List<BDN4FileEntry>();
         public List<BDN4FileData> files = new List<BDN4FileData>();
 
-        public BDN4File()
+        public BDN4File()               //Fix for CS8983 / CS0171
         {
         }
     }
