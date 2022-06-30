@@ -1,9 +1,9 @@
-﻿using System;
+﻿//using System;
 using System.CommandLine;
-using System.CommandLine.Invocation;
-using System.IO;
+//using System.CommandLine.Invocation;
+//using System.Diagnostics.CodeAnalysis;
+//using System.IO;
 using System.Text;
-
 class Program
 {    static async Task Main(string[] args)
     {
@@ -47,6 +47,22 @@ class Program
         public int unk6;
         public byte encoding;
         public byte[] unk7 = new byte[15];
+
+        public BND4Header()         //Fix for CS8983 / CS0171
+        {
+            unk1 = 0;
+            unk2 = 0;
+            fileCount = 0;
+            unk3 = 0;
+            unk4 = 0;
+            version = new byte[8];
+            entrySize = 0;
+            unk5 = 0;
+            dataOffset = 0;
+            unk6 = 0;
+            encoding = 0;
+            unk7 = new byte[8];
+        }
     }
 
     struct BDN4FileEntry
@@ -74,6 +90,10 @@ class Program
         public BND4Header header = new BND4Header();
         public List<BDN4FileEntry> entries = new List<BDN4FileEntry>();
         public List<BDN4FileData> files = new List<BDN4FileData>();
+
+        public BDN4File()               //Fix for CS8983 / CS0171
+        {
+        }
     }
 
     public static void ValidateThenExecute(FileInfo input, FileInfo output, int source, int dest)
